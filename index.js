@@ -1,26 +1,26 @@
 var express = require ('express');
-var mongoose = require ('mongoose');
+// var mongoose = require ('mongoose');
 var bodyparser = require ('body-Parser');
 var cors = require ('cors');
-var path = require('path');
+// var path = require('path');
 
 var app = express();
-const route = require ('./route/routes');
+// const route = require ('./route/routes');
 
 //mongodb connection
 
-mongoose.connect("mongodb://localhost:27017/shoppinglist", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost:27017/shoppinglist", { useNewUrlParser: true });
 
-mongoose.connection.on('connected', ()=>{
-    console.log('connected to mongoDb');
-});
-mongoose.connection.on('error', ()=>{
-    console.log(error);
-});
+// mongoose.connection.on('connected', ()=>{
+//     console.log('connected to mongoDb');
+// });
+// mongoose.connection.on('error', ()=>{
+//     console.log(error);
+// });
 
 //home route
 app.get('/', (req, res)=>{
-    res.send('Home page- Backend');
+    res.send('Welcome to the home page');
 });
 
 //integration
@@ -36,7 +36,7 @@ app.get('*', function (req, res, next) {
 app.use(cors());
 app.use(bodyparser.json());
 
-app.use('/api', route);  
+// app.use('/api', route);  
 
 const port = process.env.PORT || 3000;
 
